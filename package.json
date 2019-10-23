@@ -9,6 +9,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "offline": "REACT_APP_ENV=offline react-scripts start",
+    "development": "REACT_APP_ENV=development react-scripts start",
+    "production": "REACT_APP_ENV=production react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
