@@ -9,7 +9,7 @@ function App() {
       <h1>Bob's Cool NFL Site</h1>
       <PlayersContainer />
     </div>
-  );
+  )
 }
 
 export default App;
