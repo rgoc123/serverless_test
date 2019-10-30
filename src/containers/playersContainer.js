@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import PlayerItem from './playerItem'
+
 export default class PlayersContainer extends Component {
   constructor() {
     super()
@@ -18,6 +20,12 @@ export default class PlayersContainer extends Component {
     })
   }
 
+  playersList() {
+    return this.state.players.map(player => {
+      return <PlayerItem key={player.PlayerId} player={player} />
+    })
+  }
+
   render() {
     console.log(this.state)
 
@@ -27,7 +35,12 @@ export default class PlayersContainer extends Component {
       )
     } else {
       return (
-        <h2>Players</h2>
+        <>
+          <h2>Players</h2>
+          <div className="players-list">
+            {this.playersList()}
+          </div>
+        </>
       )
     }
   }
