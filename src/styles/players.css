@@ -1,0 +1,15 @@
+#player-form {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  margin: 0 auto;
+}
+
+#player-form input {
+  margin: 5px 0;
+  padding: 10px;
+}
+
+#player-form button {
+  height: 40px;
+}
