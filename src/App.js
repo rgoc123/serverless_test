@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <h1>Bob's Cool NFL Site</h1>
       <PlayersContainer />
-      <Example />
+      <PlayerFormContainer />
     </div>
   )
 }

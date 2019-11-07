@@ -13,10 +13,30 @@ export default class PlayerForm extends Component {
       homeState: "",
       position: "",
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit() {
+  async handleSubmit(e) {
+    e.preventDefault()
     console.log("Submitting form")
+    const stream = await fetch('https://hrvunvk5si.execute-api.us-west-2.amazonaws.com/prod/players', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        birthday: this.state.birthday,
+        hometown: this.state.hometown,
+        homeState: this.state.homeState,
+        position: this.state.position,
+      })
+    })
+
+    console.log(response)
   }
 
   handleChange(field, e) {
@@ -26,8 +46,6 @@ export default class PlayerForm extends Component {
   }
 
   render() {
-    console.log(this.state)
-
     return (
       <>
         <h2>Player Form</h2>
@@ -40,7 +58,7 @@ export default class PlayerForm extends Component {
           <input value={this.state.hometown} placeholder="Hometown" onChange={(e) => this.handleChange("hometown", e)}/ >
           <input value={this.state.homeState} placeholder="Home State" onChange={(e) => this.handleChange("homeState", e)}/ >
           <input value={this.state.position} placeholder="Position" onChange={(e) => this.handleChange("position", e)}/ >
-          <button type="submit" onClick={() => this.handleSubmit()}>Add Player</button>
+          <button type="submit" onClick={this.handleSubmit}>Add Player</button>
         </form>
       </>
     )
